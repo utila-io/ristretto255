@@ -26,6 +26,11 @@ func NewScalar() *Scalar {
 	return &Scalar{}
 }
 
+// CreateScalar returns a Scalar set to the value of x.
+func CreateScalar(x *edwards25519.Scalar) *Scalar {
+	return &Scalar{*x}
+}
+
 // Set sets the value of s to x and returns s.
 func (s *Scalar) Set(x *Scalar) *Scalar {
 	*s = *x
