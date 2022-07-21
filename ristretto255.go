@@ -505,3 +505,11 @@ func (e *Element) String() string {
 	result, _ := e.MarshalText()
 	return string(result)
 }
+
+func CreateElement(pt *edwards25519.Point) *Element {
+	return &Element{r: *edwards25519.NewIdentityPoint().Set(pt)}
+}
+
+func (e *Element) GetEdwardsPoint() *edwards25519.Point {
+	return &e.r
+}
